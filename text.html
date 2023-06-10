@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/png" href="" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="CSS/backup2.css" />
+    <link rel="stylesheet" href="CSS/footer.css" />
+    <link rel="stylesheet" href="CSS/header.css" />
+    <link rel="stylesheet" href="CSS/responsive.css" />
+    <!-- <link rel="stylesheet" href="CSS/responsive.css" /> -->
+
+    <title></title>
+
+    <script async src="JS/header.js"></script>
+
+
+
+<style>
+    
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  color: #444;
+
+}
+
+header {
+  padding: 1.8rem 1rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+
+/* GENERAL ELEMENTS */
+
+.btn {
+  /* display: inline-block; */
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-color: transparent;
+  /* width: 20%; */
+}
+
+
+
+p {
+  color: #666;
+}
+
+/* This is BAD for accessibility! Don't do in the real world! */
+button:focus {
+  outline: none;
+}
+
+
+/* OPERATIONS */
+.operations {
+  width: 70%;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.operations__tab-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.operations__tab span {
+  margin-right: 1rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+
+.operations__tab-container {
+  border-bottom: 4px solid #EDEEF5;
+  padding: 0;
+
+
+}
+
+.operations__tab--active {
+  /* transform: translateY(-66%); */
+  background-color: #edeef5;
+}
+
+.operations__content {
+  display: none;
+  font-size: 1rem;
+  margin-top: 5rem;
+  width: 100%;
+}
+
+.operations__content--active {
+  display: block;
+}
+
+
+.add__new {
+  text-align: center;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.add__new p {
+  color: black;
+  font-weight: 700;
+}
+
+.add__new button {
+  width: 100%;
+  /* display: block; */
+}
+
+.add__new input, .backup__link{
+  height: 2.5rem;
+  border: none;
+  outline: none;
+  padding: 0 1rem;
+  border-radius: 6px;
+}
+.backup__link{
+  display: block;
+  background-color: #02126a;
+  color: white;
+  /* height: auto; */
+  /* padding: auto; */
+}
+.add__new input[type='text'] {
+  background-color: #d9d9d9;
+  color: #62698e;
+}
+
+.add__new input[type='submit'] {
+  background-color: #02126a;
+  color: white;
+}
+
+.add__new input::placeholder {
+  text-align: center;
+}
+
+.data__base--info {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(2, auto);
+  /* place-items: center; */
+  /* width: 40%; */
+  gap: 3rem;
+  align-content: start;
+  /* height: 20rem; */
+  margin-top: 3rem;
+
+}
+
+.backup__plan {
+  display: flex;
+  /* height: 100px; */
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-flow: column wrap;
+  margin-top: 3rem;
+}
+
+.backup__plan input {
+  width: 100%;
+}
+
+.backup__plan select {
+  width: 100%;
+  border-radius: 6px;
+  height: 2.5rem;
+  outline: none;
+  text-align: center;
+  background-color: #d9d9d9;
+  color: #02126a;
+  font-weight: 700;
+}
+
+.data__base--info label {
+  text-align: left;
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  color: #02126a;
+  font-weight: 700;
+}
+
+.data__base--info input,
+.data__base--info select {
+  width: 100%;
+}
+
+.all__contents {
+  padding: 8rem 0;
+}
+
+
+
+
+.search {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.backup__input {
+  display: flex;
+}
+
+.backup__input input[type='text'] {
+  width: 80%;
+  padding: 0.8rem;
+  border: none;
+  background-color: #edeef5;
+
+}
+
+.backup__input input[type='submit'] {
+  width: 20%;
+  /* padding:0 rem; */
+  padding: 0.8rem;
+  border: none;
+  background-color: #02126a;
+  color: white;
+}
+
+.check{
+  /* display: block; */
+}
+.table__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  /* height: 3rem; */
+  width: 100%;
+}
+
+.horizontal__line {
+  display: flex;
+  border-bottom: 2px solid #edeef5;
+  height: 4rem;
+  align-items: flex-end;
+  /* justify-content:space-around; */
+
+}
+
+.horizontal__line p {
+  flex-basis: 40%;
+  bottom: 0;
+}
+
+
+.settings {
+  display: flex;
+  flex-flow: column wrap;
+  gap: 0.5rem;
+}
+
+.settings input {
+  background-color: #edeef5;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+.backups__table{
+  /* width: 100%; */
+  /* background-color: red; */
+}
+.backups__table a {
+  text-decoration: none;
+  /* margin:0.5rem; */
+}
+
+.table__row:nth-child(even) {
+  background-color: #edeef5;
+
+}
+
+.table__row:nth-child(odd) {
+  /* background-color: blue; */
+}
+
+
+.line {
+  margin: 1rem 0;
+}
+
+
+
+
+
+/* website preview */
+.website__preview {
+  display: none;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  color: #02126a;
+
+}
+
+.website__preview--left {
+  width: 18rem;
+  height: 15rem;
+  background-color: #edeef5;
+}
+
+.backup__plan--content {
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.website__preview--right {
+  text-align: center;
+}
+
+
+.website__preview--right .smallcase {
+  font-size: 0.7rem;
+}
+
+.website__preview--right .bigcase {
+  font-size: 1.3rem;
+}
+
+.backup__link {
+  padding: 1rem;
+  color: white;
+  background-color: #02126a;
+  text-decoration: none;
+  font-size: 0.8rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  border-radius: 6px;
+}
+
+
+.backup__plan--content ul:last-child {
+  width: 20rem;
+}
+
+
+.expand {
+  padding-bottom: 5rem;
+  background-color: white;
+  border: 3px solid #edeef5;
+  border-left: none;
+  border-right: none;
+}
+
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.display__web--prev {
+  display: flex;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+
+
+.table__row--1 {
+  /* display: flex;
+  flex-flow: column wrap; */
+  /* background-color: #edeef5; */
+  cursor: pointer;
+}
+
+.backup__history {
+  /* padding: 0.5rem; */
+  display: none;
+  /* background-color: red; */
+ position: relative;
+  top: 5rem;
+  right:84%;
+}
+
+.show__history {
+  display: flex;
+}
+
+
+#search{
+  cursor: pointer;
+}
+
+
+@media (max-width:880px) {
+  .btn {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-family: inherit;
+    font-weight: 500;
+    border: none;
+    padding: 0.5rem;
+    gap: 20%
+  }
+
+  .operations__tab-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .backup__input input[type='text'] {
+    padding: 0.5rem;
+  }
+
+  .backup__input input[type='submit'] {
+    padding: 0.5rem;
+  }
+
+
+  .table__row {
+    /* flex-flow:column wrap; */
+    padding: 0;
+  }
+
+  .backups__table a {
+    text-decoration: none;
+    margin: 1rem;
+    font-size: 1rem;
+
+  }
+
+  .table__row a {
+    font-size: 1rem;
+  }
+
+  .table__row span {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .download__img {
+    width: 1rem;
+    height: 1rem;
+    text-align: center;
+  }
+
+  .share__delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-flow: column wrap;
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width:768px) {
+  .operations {
+    width: 90%;
+  }
+  .table__row {
+    flex-flow: column wrap;
+    padding: 0;
+  }
+
+  .horizontal__line p {
+    display: none;
+  }
+
+  .all__contents {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .display__web--prev{
+    flex-flow: column wrap;
+    align-items: center;
+    /* flex-basis: 100%; */
+  }
+  .website__preview--left{
+width: 80%;
+height: 20rem;
+  }
+  .backup__plan--content{
+gap: 1.5rem;
+  }
+
+ 
+}
+
+@media (max-width:500px) {
+  .btn {
+    display: inline-block;
+    font-size: 0.5rem;
+    font-family: inherit;
+    font-weight: 500;
+    border: none;
+    padding: 0.4rem;
+    gap: 20%
+  }
+
+  .operations__tab-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .operations {
+    width: 100%;
+  }
+
+  .operations__content {
+    width: 100%;
+  }
+
+
+}
+</style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul class="nav__links">
+
+                <a href="index.html">
+                    <ul class="logo__design">
+                        <ul class="logo__images">
+                            <li class='logo cloud--img'><img src="Images/logo1.png" alt=""></li>
+
+                            <span class="logo__strokes">
+                                <li class='logo'><img src="Images/logo2.png" alt=""></li>
+                                <li class='logo'><img src="Images/logo3.png" alt=""></li>
+                                <li class='logo'><img src="Images/logo4.png" alt=""></li>
+                            </span>
+
+                        </ul>
+
+                        <ul class="nano__cloud--text">
+                            <li class=''>Nano cloud</li>
+
+                        </ul>
+
+
+                    </ul>
+                </a>
+                <ul class="nav--top__right__links animate__animated animate__lightSpeedInRight">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="backup1.html">Back Up</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="login.html">Login</a></li>
+                </ul>
+
+
+
+            </ul>
+            <div class="toggle__container">
+                <div class="bar1"></div>
+                <div class="bar2"></div>
+                <div class="bar3"></div>
+            </div>
+        </nav>
+    </header>
+
+
+
+    <main class="all__contents">
+
+
+
+        <section class="section" id="section--2">
+
+            <div class="operations">
+                <div class="operations__tab-container">
+                    <button class="btn operations__tab operations__tab--1 " data-tab="1">
+                        Add New
+                    </button>
+                    <button class="btn operations__tab operations__tab--2 operations__tab--active" data-tab="2">
+                        My Back Ups
+                    </button>
+                    <button class="btn operations__tab operations__tab--3" data-tab="3">
+                        Settings
+                    </button>
+                </div>
+                <div class="operations__content operations__content--1">
+
+                    <form action="" class="add__new">
+                        <p>Back up your data automatically</p>
+                        <input type="text" name="" id="" placeholder="Enter website url">
+                        <a href="database.html" class="backup__link">Back up</a>
+
+                        
+                        <div class="backup__plan">
+                            <select name="backups" id="backups">
+                                <option value="choose a backup plan">Choose a backup plan</option>
+                                <option value="second">second</option>
+                                <option value="third">third</option>
+                                <option value="fourth">fourth</option>
+                            </select>
+                            <input type="text">
+
+                        </div>
+                    </form>
+
+                </div>
+
+                <div class="operations__content operations__content--2 operations__content--active">
+
+                    <form action="" class="search">
+                        <p>search back ups</p>
+                        <div class="backup__input">
+                            <input type="text" name="" id="" placeholder="Enter website url">
+                            <input type="submit" name="" id="search" value="search">
+                        </div>
+
+                        <div class="website__preview display__web--prev">
+                            <aside class="website__preview--left"></aside>
+                            <aside class="website__preview--right">
+                                <ul class="backup__plan--content">
+                                    <ul>
+                                        <li class="smallcase">Current Back up Plan</li>
+                                        <li class="bigcase">Gold plan</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="smallcase">Back ups So far</li>
+                                        <li class="bigcase">25</li>
+                                    </ul>
+                                    <ul>
+                                        <li class="smallcase">file size</li>
+                                        <li class="bigcase">4.5GB</li>
+                                    </ul>
+                                    <ul>
+                                    <li><a href="" class="backup__link">Back Up</a></li>
+                                    </ul>
+                                </ul>
+                            </aside>
+                        </div>
+                        <div class="backups__table">
+
+                            <div class="horizontal__line">
+                                <p>website url</p>
+                                <p>date last backed up</p>
+
+                            </div>
+                            <div class='table__row row1 expand'>
+                                <a href="" class="nano__link">www.nanocodes.com.ng</a>
+                                <span>
+                                    <a href="">11:23:34</a>
+                                    <a href="">2/01/23</a>
+                                </span>
+                                
+                                <span>
+                                    <img src="Images/download.png" class="download__img" alt="">
+                                    <a href="">Download</a>
+
+                                </span>
+
+                                <span class='share__delete'>
+                                    <img src="Images/share.png" alt="">
+                                    <img src="Images/delete.png" alt="">
+                                </span>
+                                <div class="backup__history1 backup__history">Backup History</div>
+                            </div>
+                            <div class='table__row row2'>
+                                <a href="" class="nano__link">www.nanocodes.com.ng</a>
+                                <span>
+                                    <a href="">11:23:34</a>
+                                    <a href="">2/01/23</a>
+                                </span>
+
+                                <span>
+                                    <img src="Images/download.png" class="download__img" alt="">
+                                    <a href="">Download</a>
+
+                                </span>
+
+                                <span class='share__delete'>
+                                    <img src="Images/share.png" alt="">
+                                    <img src="Images/delete.png" alt="">
+                                </span>
+                                <div class="backup__history2 backup__history">Backup History</div>
+
+                            </div>
+
+                            <div class='table__row row3'>
+                                <a href="" class="nano__link">www.nanocodes.com.ng</a>
+                                <span>
+                                    <a href="">11:23:34</a>
+                                    <a href="">2/01/23</a>
+                                </span>
+
+                                <span>
+                                    <img src="Images/download.png" class="download__img" alt="">
+                                    <a href="">Download</a>
+
+                                </span>
+
+                                <span class='share__delete'>
+                                    <img src="Images/share.png" alt="">
+                                    <img src="Images/delete.png" alt="">
+                                </span>
+                                <div class="backup__history3 backup__history">Backup History</div>
+
+                            </div>
+                            <div class='table__row row4'>
+                                <a href="" class="nano__link">www.nanocodes.com.ng</a>
+                                <span>
+                                    <a href="">11:23:34</a>
+                                    <a href="">2/01/23</a>
+                                </span>
+
+                                <span>
+                                    <img src="Images/download.png" class="download__img" alt="">
+                                    <a href="">Download</a>
+
+                                </span>
+
+                                <span class='share__delete'>
+                                    <img src="Images/share.png" alt="">
+                                    <img src="Images/delete.png" alt="">
+                                </span>
+                                <div class="backup__history4 backup__history">Backup History</div>
+
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+                <div class="operations__content operations__content--3">
+                    <form action="" class="settings">
+                        <p>Change password</p>
+                        <input type="password" name="" id="" placeholder="payment plan">
+                        <p>Email</p>
+                        <input type="email" placeholder="deactivate account">
+                    </form>
+                </div>
+            </div>
+        </section>
+        <!-- <script src="script.js"></script> -->
+    </main>
+
+
+
+
+    <footer>
+        <div class="footer--content__heading">
+
+            <ul class="logo__design footer__logo">
+                <ul class="logo__images">
+                    <li class='logo cloud--img'><img src="Images/logo1.png" alt=""></li>
+
+                    <span class="logo__strokes">
+                        <li class='logo'><img src="Images/logo2.png" alt=""></li>
+                        <li class='logo'><img src="Images/logo3.png" alt=""></li>
+                        <li class='logo'><img src="Images/logo4.png" alt=""></li>
+                    </span>
+
+                </ul>
+
+                <ul class="nano__cloud--text">
+                    <li class=''>Nano cloud</li>
+
+                </ul>
+
+
+            </ul>
+
+            <div>
+                <p>subscribe to stay tuned for new web design and</p>
+                <p>latest updates.Let's do it.</p>
+            </div>
+
+        </div>
+
+        <div class="sub">
+            <ul>
+                <li><a href="">About</a></li>
+                <li><a href="">Features</a></li>
+                <li><a href="">Pricing</a></li>
+                <li><a href="">Team</a></li>
+            </ul>
+            <div class="subscribe__input--container">
+                <input type="text" placeholder="enter your email address">
+                <button>subscribe</button>
+            </div>
+
+        </div>
+
+        <div class="line"></div>
+
+        <ul class="footer__last--row">
+            <div class="flex__item--1">
+                <li><a href="">Privacy Policy</a></li>
+                <li><a href="">Terms of Use</a></li>
+                <li><a href="">Sales and Refunds</a></li>
+                <li><a href="">Legal</a></li>
+            </div>
+            <div class="flex__item--2">
+                <li><a href=""><img src="Images/instagram.png" alt=""></a></li>
+                <li><a href=""><img src="Images/facebook.png" alt=""></a></li>
+                <li><a href=""><img src="Images/twitter.png" alt=""></a></li>
+            </div>
+        </ul>
+    </footer>
+
+
+    <script src="">
+            
+const modal = document.querySelector('.modal');
+const overlay = document.querySelector('.overlay');
+const btnCloseModal = document.querySelector('.btn--close-modal');
+const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+
+
+
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
+
+  // Guard clause
+  if (!clicked) return;
+
+  // Remove active classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  // Activate tab
+  clicked.classList.add('operations__tab--active');
+
+  // Activate content area
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
+const tableRowLink=document.querySelectorAll('.table__row a');
+
+tableRowLink.forEach(rowLink=>{
+  rowLink.addEventListener('click',function(e){
+    e.preventDefault();
+  })
+})
+
+
+const webPreview=document.querySelector('.website__preview');
+const row1=document.querySelector('.row1')
+const row2=document.querySelector('.row2')
+const row3=document.querySelector('.row3')
+const row4=document.querySelector('.row4')
+
+const backupHistory1=document.querySelector('.backup__history1');
+  const backupHistory2=document.querySelector('.backup__history2');
+  const backupHistory3=document.querySelector('.backup__history3');
+  const backupHistory4=document.querySelector('.backup__history4');
+
+// const tableRow=document.querySelectorAll('.table__row');
+// tableRow.forEach(e=>{
+//  e.addEventListener('click',function(e){
+//  })
+// })
+
+row1.addEventListener('click',function(e){
+  row1.classList.toggle('expand');
+  row2.classList.remove('expand');
+  row3.classList.remove('expand');
+  row4.classList.remove('expand');
+ 
+  webPreview.classList.toggle('display__web--prev');
+  
+  backupHistory1.classList.toggle('show__history');
+  backupHistory2.classList.remove('show__history');
+  backupHistory3.classList.remove('show__history');
+  backupHistory4.classList.remove('show__history');
+})
+
+row2.addEventListener('click',function(e){
+  row1.classList.remove('expand');
+  row2.classList.toggle('expand');
+  row3.classList.remove('expand');
+  row4.classList.remove('expand');
+  if(row2.classList.contains('expand')){
+      webPreview.classList.add('display__web--prev');
+      
+    }
+    else{
+    webPreview.classList.remove('display__web--prev');
+    }
+  backupHistory2.classList.toggle('show__history');
+  backupHistory1.classList.remove('show__history');
+  backupHistory3.classList.remove('show__history');
+  backupHistory4.classList.remove('show__history');
+
+
+})
+
+row3.addEventListener('click',function(e){
+  row1.classList.remove('expand');
+  row2.classList.remove('expand');
+  row3.classList.toggle('expand');
+  row4.classList.remove('expand');
+  if(row3.classList.contains('expand')){
+    webPreview.classList.add('display__web--prev');
+    
+  }
+  else{
+  webPreview.classList.remove('display__web--prev');
+  }
+  backupHistory3.classList.toggle('show__history');
+  backupHistory1.classList.remove('show__history');
+  backupHistory2.classList.remove('show__history');
+  backupHistory4.classList.remove('show__history');
+})
+
+row4.addEventListener('click',function(e){
+  row1.classList.remove('expand');
+  row2.classList.remove('expand');
+  row3.classList.remove('expand');
+  row4.classList.toggle('expand');
+  if(row4.classList.contains('expand')){
+    webPreview.classList.add('display__web--prev');
+    
+  }
+  else{
+  webPreview.classList.remove('display__web--prev');
+  }
+  backupHistory4.classList.toggle('show__history');
+  backupHistory1.classList.remove('show__history');
+  backupHistory2.classList.remove('show__history');
+  backupHistory3.classList.remove('show__history');
+})
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

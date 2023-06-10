@@ -1,0 +1,123 @@
+/* footer */
+/* @import url('responsive.css'); */
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    color: #444;
+    /* overflow-x: hidden; */
+  
+  }
+
+footer {
+    /* position: relative; */
+    font-family: 'Poppins';
+    color: #02126A;
+    /* height: 50vh; */
+    padding:4rem;
+    background: #F5FBFF;
+}
+
+.footer__logo {
+    /* position: absolute;
+    left: 0; */
+    font-size: 1.3rem;
+}
+
+.nano__cloud--text {
+    font-weight: 800;
+}
+
+.footer--content__heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 100%; */
+    /* background-color: red; */
+}
+
+.sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.sub ul {
+    display: flex;
+    gap: 1rem;
+    border-radius: 0.4rem;
+}
+
+.sub ul li a {
+    text-decoration: none;
+    color: #2D2E2E;
+}
+
+.subscribe__input--container {
+    /* background-color: red; */
+    display: flex;
+    width: 35%;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 17px 16px;
+
+}
+
+.subscribe__input--container input {
+    border-right: none;
+    height: 2.5rem;
+    width: 70%;
+    border: none;
+    background: #E0E0E0;
+    border-radius:4px 0px 0px 4px ;
+    outline: none;
+    padding:0 1rem;
+}
+
+.subscribe__input--container button {
+    border-radius: 0;
+    cursor: pointer;
+    height: 2.5rem;
+    width: 30%;
+    background: #1D3599;
+    border-radius: 0px 4px 4px 0px;
+    color: white;
+    border: none;
+}
+
+.line{
+    /* width: 85%; */
+    height: 0.2rem;
+    border: 1px solid #E0E0E0;
+    background-color: #1D3599;
+    margin: 1rem auto;
+}
+
+.footer__last--row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* .footer--right__text */
+
+.flex__item--1{
+    display: flex;
+    gap:1rem;
+}
+.flex__item--1 li a,
+.flex__item--2 li a{
+    text-decoration: none;
+    color: #2D2E2E;
+}
+
+.flex__item--2{
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    justify-content: start;
+    /* background-color: red; */
+    padding-right: 4rem;
+}
